@@ -16,6 +16,11 @@ public class Safe : Object
     public int num5;
     public int num6;
 
+    public AudioClip OpenSafe;
+
+    public AudioSource MusicSource;
+
+
     TextMeshPro text1;
     TextMeshPro text2;
     TextMeshPro text3;
@@ -53,6 +58,8 @@ public class Safe : Object
         text4 = GameObject.Find("num4Text").GetComponent<TextMeshPro>();
         text5 = GameObject.Find("num5Text").GetComponent<TextMeshPro>();
         text6 = GameObject.Find("num6Text").GetComponent<TextMeshPro>();
+
+        MusicSource.clip = OpenSafe;
     }
 
     // Update is called once per frame
@@ -76,6 +83,7 @@ public class Safe : Object
             //Password is correct
             open = true;
             Debug.Log("Correct");
+            MusicSource.Play();
         }
     }
 
