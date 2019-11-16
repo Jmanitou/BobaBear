@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Object : MonoBehaviour
 {
@@ -24,7 +25,7 @@ public class Object : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.Find("Player").GetComponent<Inventory>();
+        player = GameObject.Find("Inventory").GetComponent<Inventory>();
         gameObject.SetActive(true);
         pickedUp = false;
         zoomedIn = false;
@@ -59,13 +60,16 @@ public class Object : MonoBehaviour
     //picks up an object
     void PickUp()
     {
-        for (int i=0; i<player.inventory.Count; i++)
+        for (int i=0; i<player.slots.Length; i++)
         {
             if (player.isFull[i] == false)
             {
                 pickedUp = true;
                 player.inventory.Add(this);
-                Instantiate(player.item, player.inventory[i].transform, false);
+                GameObject item = this.transform.GetChild(0).gameObject;
+                Image itemImage = item.gameObject.GetComponent<Image>();
+                itemImage.rectTransform.anchoredPosition = new Vector2(0, 0);
+                Instantiate(itemImage, player.slots[i].transform, false);
                 gameObject.SetActive(false);
                 break;
             }
@@ -83,6 +87,7 @@ public class Object : MonoBehaviour
     {
         if (pickupOrZoom == PickOrZoom.pick)
         {
+            Debug.Log("click");
             PickUp();
         }
         else if (pickupOrZoom == PickOrZoom.zoom)
