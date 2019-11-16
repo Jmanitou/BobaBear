@@ -4,10 +4,44 @@ using UnityEngine;
 
 public class TestTube : Object
 {
+    string chemical;
+    string color;
     // Start is called before the first frame update
     void Start()
     {
-        
+        chemical = gameObject.name;
+        switch (chemical)
+        {
+            case "Nitrogen Dioxide":
+                color = "cyan";
+                break;
+            case "Sulfuric Acid":
+                color = "grey";
+                break;
+            case "Glycerol":
+                color = "green";
+                break;
+            case "Chlorine":
+                color = "red";
+                break;
+            case "Methane":
+                color = "yellow";
+                break;
+            case "Sodium Hydroxide":
+                color = "black";
+                break;
+            case "Barium Chlorate":
+                color = "white";
+                break;
+            case "Fluorine":
+                color = "pink";
+                break;
+            case "Ammonia":
+                color = "brown";
+                break;
+            default:
+                break;
+        }
     }
 
     // Update is called once per frame
