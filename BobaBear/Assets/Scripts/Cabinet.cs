@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class Cabinet : Object
 {
-    bool open;
+    bool closed;
     List<Object> inventory;
 
     // Start is called before the first frame update
     void Start()
     {
-        open = false;
         zoomedIn = true;
         pickupOrZoom = PickOrZoom.zoom;
 
@@ -25,10 +24,6 @@ public class Cabinet : Object
         {
             OpenCabinet();
         }
-        if (open)
-        {
-            //Delete current gameobject and instantiate opened cabinet prefab with object in it
-        }
     }
 
     void OpenCabinet()
@@ -36,7 +31,7 @@ public class Cabinet : Object
         // if key is selected/if key is dragged and dropped over cabinet
         if (true)
         {
-            open = true;
+
         }
     }
 }

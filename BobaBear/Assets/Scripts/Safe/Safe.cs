@@ -8,7 +8,6 @@ public class Safe : Object
     public GameObject text;
     public GameObject upButton;
     public GameObject downButton;
-    public GameObject openSafe;
 
     public int num1;
     public int num2;
@@ -16,9 +15,6 @@ public class Safe : Object
     public int num4;
     public int num5;
     public int num6;
-
-    Vector3 originalSize;
-    Vector3 originalPosition;
 
     TextMeshPro text1;
     TextMeshPro text2;
@@ -37,10 +33,7 @@ public class Safe : Object
     void Start()
     {
         open = false;
-        zoomedIn = false;
-
-        originalSize = transform.localScale;
-        originalPosition = transform.position;
+        zoomedIn = true;
 
         num1 = 1;
         num2 = 2;
@@ -67,7 +60,6 @@ public class Safe : Object
     {
         if (zoomedIn)
         {
-            ZoomOut();
             CheckForCorrect();
             UpdateText();
         }
