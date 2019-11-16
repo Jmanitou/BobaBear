@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: c9b946ff303b03b4aae130a9445219bc
+=======
+guid: 6540803d59e0b4249ab8fc881336e487
+>>>>>>> parent of 4aa2485... Merge branch 'master' of https://github.com/Jmanitou/BobaBear
 AudioImporter:
   externalObjects: {}
   serializedVersion: 6

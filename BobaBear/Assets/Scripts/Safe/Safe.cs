@@ -8,6 +8,7 @@ public class Safe : Object
     public GameObject text;
     public GameObject upButton;
     public GameObject downButton;
+    public GameObject openSafe;
 
     public int num1;
     public int num2;
@@ -16,10 +17,15 @@ public class Safe : Object
     public int num5;
     public int num6;
 
+<<<<<<< HEAD
     public AudioClip OpenSafe;
 
     public AudioSource MusicSource;
 
+=======
+    Vector3 originalSize;
+    Vector3 originalPosition;
+>>>>>>> parent of 4aa2485... Merge branch 'master' of https://github.com/Jmanitou/BobaBear
 
     TextMeshPro text1;
     TextMeshPro text2;
@@ -38,7 +44,10 @@ public class Safe : Object
     void Start()
     {
         open = false;
-        zoomedIn = true;
+        zoomedIn = false;
+
+        originalSize = transform.localScale;
+        originalPosition = transform.position;
 
         num1 = 1;
         num2 = 2;
@@ -67,6 +76,7 @@ public class Safe : Object
     {
         if (zoomedIn)
         {
+            ZoomOut();
             CheckForCorrect();
             UpdateText();
         }

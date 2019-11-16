@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 61d14a69bc995204a94fd62c44ba7765
+=======
+guid: 2f207aefe0c6bcd489f8eea70eb0d224
+>>>>>>> parent of 4aa2485... Merge branch 'master' of https://github.com/Jmanitou/BobaBear
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
