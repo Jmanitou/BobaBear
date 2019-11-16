@@ -70,6 +70,13 @@ public class Safe : Object
             CheckForCorrect();
             UpdateText();
         }
+<<<<<<< HEAD
+=======
+        if (open == true)
+        {
+
+        }
+>>>>>>> parent of 06ce5e8... Teachers desk
     }
 
     void CheckForCorrect()
@@ -96,4 +103,39 @@ public class Safe : Object
         text5.SetText(num5.ToString());
         text6.SetText(num6.ToString());
     }
+<<<<<<< HEAD
+=======
+
+    void OnMouseDown()
+    {
+        if (zoomedIn == false)
+        {
+            zoomedIn = true;
+            transform.position = Camera.main.transform.position;
+            Vector3 pos = transform.position;
+            pos.z = -2;
+            pos.y += 1;
+            transform.position = pos;
+            transform.localScale *= 6;
+        }
+    }
+
+    void ZoomOut()
+    {
+        if (zoomedIn)
+        {
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                transform.localScale = originalSize;
+                transform.position = originalPosition;
+                zoomedIn = false;
+            }
+        }
+    }
+
+    void OpenSafe()
+    {
+        
+    }
+>>>>>>> parent of 06ce5e8... Teachers desk
 }
