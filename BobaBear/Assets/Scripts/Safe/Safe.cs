@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Safe : Object
 {
@@ -8,41 +9,60 @@ public class Safe : Object
     public GameObject upButton;
     public GameObject downButton;
 
-    List<GameObject> upButtons;
-    List<GameObject> downButtons;
-    List<GameObject> numbers;
+    public int num1;
+    public int num2;
+    public int num3;
+    public int num4;
+    public int num5;
+    public int num6;
 
-    int num1;
-    int num2;
-    int num3;
-    int num4;
-    int num5;
-    int num6;
-
+    TextMeshPro text1;
+    TextMeshPro text2;
+    TextMeshPro text3;
+    TextMeshPro text4;
+    TextMeshPro text5;
+    TextMeshPro text6;
 
     string correct1;
     string correct2;
     string correct3;
 
+    bool open;
+
     // Start is called before the first frame update
     void Start()
     {
-        num1 = 0;
-        num2 = 0;
-        num3 = 0;
-        num4 = 0;
-        num5 = 0;
-        num6 = 0;
+        open = false;
+        zoomedIn = true;
+
+        num1 = 1;
+        num2 = 2;
+        num3 = 3;
+        num4 = 4;
+        num5 = 5;
+        num6 = 6;
 
         correct1 = "83";
         correct2 = "40";
         correct3 = "67";
+
+        //reference all numberTexts
+        text1 = GameObject.Find("num1Text").GetComponent<TextMeshPro>();
+        text2 = GameObject.Find("num2Text").GetComponent<TextMeshPro>();
+        text3 = GameObject.Find("num3Text").GetComponent<TextMeshPro>();
+        text4 = GameObject.Find("num4Text").GetComponent<TextMeshPro>();
+        text5 = GameObject.Find("num5Text").GetComponent<TextMeshPro>();
+        text6 = GameObject.Find("num6Text").GetComponent<TextMeshPro>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        CheckForCorrect();
+        if (zoomedIn)
+        {
+            CheckForCorrect();
+            UpdateText();
+        }
     }
 
     void CheckForCorrect()
@@ -54,7 +74,18 @@ public class Safe : Object
         if (correct1 == numString1 && correct2 == numString2 && correct3 == numString3)
         {
             //Password is correct
+            open = true;
             Debug.Log("Correct");
         }
+    }
+
+    void UpdateText()
+    {
+        text1.SetText(num1.ToString());
+        text2.SetText(num2.ToString());
+        text3.SetText(num3.ToString());
+        text4.SetText(num4.ToString());
+        text5.SetText(num5.ToString());
+        text6.SetText(num6.ToString());
     }
 }
