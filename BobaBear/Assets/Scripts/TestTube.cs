@@ -16,7 +16,7 @@ public class TestTube : Object
                 color = "cyan";
                 break;
             case "Sulfuric Acid":
-                color = "grey";
+                color = "purple";
                 break;
             case "Glycerol":
                 color = "green";
@@ -31,13 +31,13 @@ public class TestTube : Object
                 color = "black";
                 break;
             case "Barium Chlorate":
-                color = "white";
+                color = "orange";
                 break;
             case "Fluorine":
-                color = "pink";
+                color = "magenta";
                 break;
             case "Ammonia":
-                color = "brown";
+                color = "blue";
                 break;
             default:
                 break;
