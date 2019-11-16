@@ -4,25 +4,38 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    private Vector3 target;
+    public Vector3 target;
     public List<Object> inventory;
-    private GameObject camera;
+    public Camera cam;
     public float camSpeed;
+    public float bounds;
 
     // Start is called before the first frame update
     void Start()
     {
-        camera = GetComponent<GameObject>();
-        camSpeed = 5.0f;
+        cam = Camera.main;
+        camSpeed = 5f;
         inventory = new List<Object>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey("a"))
+
+
+        //Panning the camera left and right only
+        Vector3 pos = cam.transform.position;
+
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
-            
+            pos.x -= camSpeed * Time.deltaTime;
         }
+        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+        {
+            pos.x += camSpeed * Time.deltaTime;
+        }
+
+        pos.x = Mathf.Clamp(pos.x, bounds, bounds);
+        cam.transform.position = pos;
     }
 }
