@@ -60,8 +60,14 @@ public class Object : MonoBehaviour
     {
         pickedUp = true;
         player.inventory.Add(this);
-        GetComponent<MeshRenderer>().enabled = false;
         gameObject.SetActive(false);
 
+    }
+
+    void Dropped()
+    {
+        pickedUp = false;
+        player.inventory.Remove(this);
+        gameObject.SetActive(true);
     }
 }
