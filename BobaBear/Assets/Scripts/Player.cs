@@ -5,7 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     private Vector3 target;
-    private List<Object> inventory;
+    public List<Object> inventory;
     private GameObject camera;
     public float camSpeed;
 
@@ -20,6 +20,9 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKey("a"))
+        {
+            
+        }
     }
 }
