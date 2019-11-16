@@ -17,15 +17,12 @@ public class Safe : Object
     public int num5;
     public int num6;
 
-<<<<<<< HEAD
     public AudioClip OpenSafe;
 
     public AudioSource MusicSource;
 
-=======
     Vector3 originalSize;
     Vector3 originalPosition;
->>>>>>> parent of 4aa2485... Merge branch 'master' of https://github.com/Jmanitou/BobaBear
 
     TextMeshPro text1;
     TextMeshPro text2;
@@ -80,13 +77,11 @@ public class Safe : Object
             CheckForCorrect();
             UpdateText();
         }
-<<<<<<< HEAD
-=======
+
         if (open == true)
         {
 
         }
->>>>>>> parent of 06ce5e8... Teachers desk
     }
 
     void CheckForCorrect()
@@ -113,9 +108,6 @@ public class Safe : Object
         text5.SetText(num5.ToString());
         text6.SetText(num6.ToString());
     }
-<<<<<<< HEAD
-=======
-
     void OnMouseDown()
     {
         if (zoomedIn == false)
@@ -147,5 +139,4 @@ public class Safe : Object
     {
         
     }
->>>>>>> parent of 06ce5e8... Teachers desk
 }
