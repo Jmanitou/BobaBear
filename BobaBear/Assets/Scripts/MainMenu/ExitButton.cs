@@ -4,15 +4,11 @@ using UnityEngine;
 
 public class ExitButton : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private void OnMouseDown()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (GetComponentInParent<MenuMain>().instructionsOpen == false)
+        {
+            Application.Quit();
+        }
     }
 }
