@@ -19,7 +19,7 @@ public class Main : MonoBehaviour
         win = "win";
         lose = "lose";
 
-        //Starting state is menu
+        //Starting state is room
         state = room;
     }
 
