@@ -20,7 +20,7 @@ public class Object : MonoBehaviour
     public bool zoomedIn;
     public bool pickedUp;
     //reference to Player script
-    private Inventory player;
+    public Inventory player;
 
     // Start is called before the first frame update
     void Start()
@@ -83,7 +83,7 @@ public class Object : MonoBehaviour
         gameObject.SetActive(true);
     }
 
-    private void OnMouseDown()
+    public void OnMouseDown()
     {
         if (pickupOrZoom == PickOrZoom.pick)
         {
