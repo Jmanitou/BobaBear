@@ -8,6 +8,7 @@ public class Safe : Object
     public GameObject text;
     public GameObject upButton;
     public GameObject downButton;
+    public GameObject openSafe;
 
     public int num1;
     public int num2;
@@ -15,6 +16,9 @@ public class Safe : Object
     public int num4;
     public int num5;
     public int num6;
+
+    Vector3 originalSize;
+    Vector3 originalPosition;
 
     TextMeshPro text1;
     TextMeshPro text2;
@@ -33,7 +37,10 @@ public class Safe : Object
     void Start()
     {
         open = false;
-        zoomedIn = true;
+        zoomedIn = false;
+
+        originalSize = transform.localScale;
+        originalPosition = transform.position;
 
         num1 = 1;
         num2 = 2;
@@ -60,8 +67,13 @@ public class Safe : Object
     {
         if (zoomedIn)
         {
+            ZoomOut();
             CheckForCorrect();
             UpdateText();
+        }
+        if (open == true)
+        {
+
         }
     }
 
@@ -87,5 +99,37 @@ public class Safe : Object
         text4.SetText(num4.ToString());
         text5.SetText(num5.ToString());
         text6.SetText(num6.ToString());
+    }
+
+    void OnMouseDown()
+    {
+        if (zoomedIn == false)
+        {
+            zoomedIn = true;
+            transform.position = Camera.main.transform.position;
+            Vector3 pos = transform.position;
+            pos.z = -2;
+            pos.y += 1;
+            transform.position = pos;
+            transform.localScale *= 6;
+        }
+    }
+
+    void ZoomOut()
+    {
+        if (zoomedIn)
+        {
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                transform.localScale = originalSize;
+                transform.position = originalPosition;
+                zoomedIn = false;
+            }
+        }
+    }
+
+    void OpenSafe()
+    {
+        
     }
 }
