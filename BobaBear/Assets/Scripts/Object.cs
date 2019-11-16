@@ -15,7 +15,7 @@ public class Object : MonoBehaviour
         pick,
         zoom
     }
-    PickOrZoom pickupOrZoom;
+    public PickOrZoom pickupOrZoom;
     public bool zoomedIn;
     public bool pickedUp;
     //reference to Player script
