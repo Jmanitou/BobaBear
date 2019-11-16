@@ -73,7 +73,7 @@ public class Safe : Object
         }
         if (open == true)
         {
-
+            OpenSafe();
         }
     }
 
@@ -130,6 +130,7 @@ public class Safe : Object
 
     void OpenSafe()
     {
-        
+        Instantiate(openSafe, originalPosition, Quaternion.identity);
+        Destroy(this.gameObject);
     }
 }
