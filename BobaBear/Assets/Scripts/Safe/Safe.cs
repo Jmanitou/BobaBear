@@ -17,10 +17,6 @@ public class Safe : Object
     public int num5;
     public int num6;
 
-    public AudioClip OpenSafe;
-
-    public AudioSource MusicSource;
-
     Vector3 originalSize;
     Vector3 originalPosition;
 
@@ -64,8 +60,6 @@ public class Safe : Object
         text4 = GameObject.Find("num4Text").GetComponent<TextMeshPro>();
         text5 = GameObject.Find("num5Text").GetComponent<TextMeshPro>();
         text6 = GameObject.Find("num6Text").GetComponent<TextMeshPro>();
-
-        MusicSource.clip = OpenSafe;
     }
 
     // Update is called once per frame
@@ -77,10 +71,9 @@ public class Safe : Object
             CheckForCorrect();
             UpdateText();
         }
-
         if (open == true)
         {
-
+            OpenSafe();
         }
     }
 
@@ -95,7 +88,6 @@ public class Safe : Object
             //Password is correct
             open = true;
             Debug.Log("Correct");
-            MusicSource.Play();
         }
     }
 
@@ -108,6 +100,7 @@ public class Safe : Object
         text5.SetText(num5.ToString());
         text6.SetText(num6.ToString());
     }
+
     void OnMouseDown()
     {
         if (zoomedIn == false)
@@ -137,6 +130,7 @@ public class Safe : Object
 
     void OpenSafe()
     {
-        
+        Instantiate(openSafe, originalPosition, Quaternion.identity);
+        Destroy(this.gameObject);
     }
 }
