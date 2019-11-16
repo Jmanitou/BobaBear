@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class Safe : Object
 {
+    public GameObject text;
+    public GameObject upButton;
+    public GameObject downButton;
+
+    List<GameObject> upButtons;
+    List<GameObject> downButtons;
+    List<GameObject> numbers;
+
     int num1;
     int num2;
     int num3;
