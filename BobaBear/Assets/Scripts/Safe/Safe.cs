@@ -54,7 +54,7 @@ public class Safe : Object
         if (correct1 == numString1 && correct2 == numString2 && correct3 == numString3)
         {
             //Password is correct
-
+            Debug.Log("Correct");
         }
     }
 }
