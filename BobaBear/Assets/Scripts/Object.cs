@@ -19,12 +19,12 @@ public class Object : MonoBehaviour
     public bool zoomedIn;
     public bool pickedUp;
     //reference to Player script
-    private Player player;
+    private Inventory player;
 
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.Find("Player").GetComponent<Player>();
+        player = GameObject.Find("Player").GetComponent<Inventory>();
         gameObject.SetActive(true);
         pickedUp = false;
         zoomedIn = false;
@@ -59,10 +59,17 @@ public class Object : MonoBehaviour
     //picks up an object
     void PickUp()
     {
-        pickedUp = true;
-        player.inventory.Add(this);
-        gameObject.SetActive(false);
-
+        for (int i=0; i<player.inventory.Count; i++)
+        {
+            if (player.isFull[i] == false)
+            {
+                pickedUp = true;
+                player.inventory.Add(this);
+                Instantiate(player.item, player.inventory[i].transform, false);
+                gameObject.SetActive(false);
+                break;
+            }
+        }
     }
 
     void Dropped()
@@ -70,5 +77,24 @@ public class Object : MonoBehaviour
         pickedUp = false;
         player.inventory.Remove(this);
         gameObject.SetActive(true);
+    }
+
+    private void OnMouseDown()
+    {
+        if (pickupOrZoom == PickOrZoom.pick)
+        {
+            PickUp();
+        }
+        else if (pickupOrZoom == PickOrZoom.zoom)
+        {
+            if (zoomedIn)
+            {
+                UnZoom();
+            }
+            else
+            {
+                Zoom();
+            }
+        }
     }
 }

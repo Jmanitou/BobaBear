@@ -1,10 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class CameraControl : MonoBehaviour
 {
-    public List<Object> inventory;
+    //camera variables
     public Camera cam;
     public float camSpeed;
     public float leftLimit;
@@ -13,7 +14,7 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        inventory = new List<Object>();
+        cam = Camera.main;
     }
 
     // Update is called once per frame
@@ -43,4 +44,5 @@ public class Player : MonoBehaviour
         }
         cam.transform.position = pos;
     }
+    
 }
